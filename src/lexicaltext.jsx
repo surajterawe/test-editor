@@ -291,6 +291,9 @@ export const LecialMainWrapper = withStyles({
     "& .toolbar .toolbar-item:hover:not([disabled])": {
       backgroundColor: "#eee",
     },
+    "& .toolbar .toolbar-item.active-tab": {
+        backgroundColor: "#eee",
+    },
     "& .toolbar .divider": {
       width: 1,
       backgroundColor: "#eee",

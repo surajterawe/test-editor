@@ -120,6 +120,8 @@ export default function ToolbarPlugin() {
   const [isItalic, setIsItalic] = useState(false);
   const [isUnderline, setIsUnderline] = useState(false);
   const [isStrikethrough, setIsStrikethrough] = useState(false);
+  const [alignment, setAlignment] = useState("left");
+
   const [isEditable, setIsEditable] = useState(() => editor.isEditable());
   // State for font size
 
@@ -130,15 +132,18 @@ export default function ToolbarPlugin() {
       editor.registerEditableListener((editable) => {
         setIsEditable(editable);
       })
+      
       setFontFamily(
         $getSelectionStyleValueForProperty(selection, 'font-family', 'Arial'),
       );
+
       setFontSize(
         $getSelectionStyleValueForProperty(selection, 'font-size', '15px'),
       );
       setIsBold(selection.hasFormat('bold'));
       setIsItalic(selection.hasFormat('italic'));
       setIsUnderline(selection.hasFormat('underline'));
+
       setIsStrikethrough(selection.hasFormat('strikethrough'));
     }
   }, []);
@@ -177,6 +182,7 @@ export default function ToolbarPlugin() {
     );
   }, [editor, updateToolbar]);
 
+
   return (
     <div className="toolbar" ref={toolbarRef}>
       <button
@@ -200,10 +206,9 @@ export default function ToolbarPlugin() {
       <Divider />
 
       <FontDropDown
-              disabled={!isEditable}
-              style={'font-family'}
-              value={fontFamily}
-              editor={editor}
+        disabled={!isEditable}
+        value={fontFamily}
+        editor={editor}
         />
       <Divider />
       {/* Font size input */}
@@ -249,33 +254,37 @@ export default function ToolbarPlugin() {
       <Divider />
       <button
         onClick={() => {
+          setAlignment("left")
           editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'left');
         }}
-        className="toolbar-item spaced"
+        className={"toolbar-item spaced " + (alignment==="left" ? 'active' : '')}
         aria-label="Left Align">
         <i className="format left-align" />
       </button>
       <button
         onClick={() => {
+          setAlignment("center")
           editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'center');
         }}
-        className="toolbar-item spaced"
+        className={"toolbar-item spaced " + (alignment==="center" ? 'active' : '')}
         aria-label="Center Align">
         <i className="format center-align" />
       </button>
       <button
         onClick={() => {
+          setAlignment("right")
           editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'right');
         }}
-        className="toolbar-item spaced"
+        className={"toolbar-item spaced " + (alignment==="right" ? 'active' : '')}
         aria-label="Right Align">
         <i className="format right-align" />
       </button>
       <button
         onClick={() => {
+          setAlignment("justify")
           editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'justify');
         }}
-        className="toolbar-item"
+        className={"toolbar-item "  + (alignment==="justify" ? 'active' : '')}
         aria-label="Justify Align">
         <i className="format justify-align" />
       </button>{' '}

@@ -2,8 +2,13 @@ import * as React from "react";
 import Editor from "./editor";
 
 export default function App() {
+  const [value, setValue] = React.useState("")
   const changeHandler = (value) => {
-    console.log(value)
+    setValue(value)
   }
-  return <Editor onChangeHandler={changeHandler} />;
+  return <> <Editor onChangeHandler={changeHandler} /> 
+  <p>
+    {value}
+  </p>
+  </>;
 }

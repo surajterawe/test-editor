@@ -7,7 +7,6 @@ import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import ExampleTheme from "./ExampleTheme";
 import { $generateHtmlFromNodes } from "@lexical/html";
-import { $getRoot, $getSelection } from "lexical";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { LecialInnerWrapper, LecialMainWrapper } from "./lexicaltext";
