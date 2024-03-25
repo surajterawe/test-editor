@@ -27,13 +27,6 @@ export default function FontSize({
   editor,
 }) {
   const [inputValue, setInputValue] = React.useState(selectionFontSize);
-
-  /**
-   * Calculates the new font size based on the update type.
-   * @param currentFontSize - The current font size
-   * @param updateType - The type of change, either increment or decrement
-   * @returns the next font size
-   */
   const calculateNextFontSize = (
     currentFontSize,
     updateType,

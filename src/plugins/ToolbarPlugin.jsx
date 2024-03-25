@@ -146,6 +146,7 @@ export default function ToolbarPlugin() {
 
       setIsStrikethrough(selection.hasFormat('strikethrough'));
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
