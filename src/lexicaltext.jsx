@@ -7,9 +7,13 @@ import italic  from './icons/type-italic.svg';
 import underline from './icons/type-underline.svg';
 import strikethrough from './icons/type-strikethrough.svg';
 import textLeft from './icons/text-left.svg';
+import Markdown from "./images/icons/markdown.svg";
 import textCenter from './icons/text-center.svg';
 import textRight from './icons/text-right.svg';
 import justify from './icons/justify.svg';
+import importIcon from "./icons/upload.svg";
+import exportIcon from "./icons/download.svg";
+
 
 export const LecialMainWrapper = withStyles({
   root: {
@@ -25,6 +29,9 @@ export const LecialMainWrapper = withStyles({
     borderTopLeftRadius: "10px",
     borderTopRightRadius: "10px",
     "& .editor-input": {
+      maxHeight: '100%',
+      overflow : "auto",
+      marginBottom : "10px",
       minHeight: "150px",
       resize: "none",
       fontSize: "15px",
@@ -33,6 +40,16 @@ export const LecialMainWrapper = withStyles({
       tabSize: 1,
       outline: 0,
       padding: "15px 10px",
+    },
+    "& .actions" : {
+      bottom: 0,
+      position: 'absolute',
+      gap: '10px',
+      justifyContent: 'end',
+      marginRight: '2rem',
+      right: '0',
+      display: 'flex',
+      background: 'white'
     },
     "& .editor-placeholder": {
       color: "#999",
@@ -97,7 +114,7 @@ export const LecialMainWrapper = withStyles({
       fontFamily: "Menlo, Consolas, Monaco, monospace",
       display: "block",
       padding: "8px 8px 8px 52px",
-      lineHeight: "1.53px",
+      lineHeight: "normal",
       fontSize: "13px",
       margin: "0",
       marginTop: "8px",
@@ -106,6 +123,10 @@ export const LecialMainWrapper = withStyles({
       /* white-space: pre; */
       overflowX: "auto",
       position: "relative",
+      '& span' :{
+        lineHeight : 'normal',
+        display : "block"
+      }
     },
     "& .editor-code:before": {
       content: "attr(data-gutter)",
@@ -350,6 +371,38 @@ export const LecialMainWrapper = withStyles({
     "& i.justify-align": {
       backgroundImage: `url(${justify})`,
     },
+    "& .action-button" : {
+      width : '32px',
+      height : '32px',
+      padding : 0,
+    },
+
+    "& i.markdown": {
+      display : "block",
+      width : '18px',
+      height : '18px',
+      backgroundImage: `url(${Markdown})`,
+      backgroundRepeat : "no-repeat"
+    },
+    "& .import-input" : {
+      display : "none"
+    },  
+    "& i.import": {
+      display : "block",
+      width : '100%',
+      height : '100%',
+      backgroundImage: `url(${importIcon})`,
+      backgroundRepeat : "no-repeat"
+    },
+    "& i.export": {
+      display : "block",
+      width : '18px',
+      height : '18px',
+      backgroundImage: `url(${exportIcon})`,
+      backgroundRepeat : "no-repeat"
+    }
+    
+    
   },
 })(({ classes, children }) => {
   return <Box className={classes.root}>{children}</Box>;
