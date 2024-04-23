@@ -131,7 +131,7 @@ export default function App() {
         )}
       {files && (
         <Editor
-          height="calc(100vh - 62px)"
+          height="80vh"
           theme="vs-dark"
           path={files.name}
           defaultLanguage={files.language}
